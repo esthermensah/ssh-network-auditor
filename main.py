@@ -13,7 +13,7 @@ import json
 import argparse
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import paramiko
 import socket
@@ -59,7 +59,7 @@ def gather_for_device(device, commands, backups_dir):
     password = device.get("password")
     name = f"{host}".replace(":", "_")
 
-    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out_path = backups_dir / f"{name}_{ts}.txt"
     backups_dir.mkdir(parents=True, exist_ok=True)
 
