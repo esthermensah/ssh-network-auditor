@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 ```
 
-1. Start the Lab
+2. Start the Lab
 
 Run this inside the project folder:
 ```bash
@@ -53,7 +53,7 @@ vagrant ssh kali-server
 vagrant ssh kali-client
 ```
 
-1. Configure Inventory
+3. Configure Inventory
 
 Use the default Vagrant credentials (vagrant / vagrant):
 ```bash
@@ -76,10 +76,9 @@ Use the default Vagrant credentials (vagrant / vagrant):
 ```bash
 python main.py -i inventory.json
 ```
-1. Check Backups
 
+5. Check Backups
 Outputs are saved into backups/:
-
 backups/
 ├── 192.168.56.101_20250930T120000Z.txt
 ├── 192.168.56.102_20250930T120500Z.txt
