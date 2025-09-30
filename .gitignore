@@ -5,7 +5,7 @@ venv/
 
 # backups & secrets
 backups/
-inventory.json
+#inventory.json
 *.log
 
 # editor
