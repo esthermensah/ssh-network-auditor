@@ -1,4 +1,8 @@
 # ssh-network-auditor
+
+## Version 1 (Manual Setup) 
+
+Steps for creating VMs manually in VirtualBox and running the script.
 Automates SSH collection of network state (IP config, routes, sockets, system info) from Linux-based lab devices. Built with Python &amp; Paramiko.
 
 This is a Kali VM Network Backups (Lab)
@@ -6,22 +10,22 @@ This project demonstrates how to build a small virtual lab (two Kali VMs) and au
 
 > **Important:** do **not** commit `inventory.json` with real credentials. Keep `inventory.example.json` in the repo and create a local `inventory.json` for testing.
 
-## What this project does
+### What this project does
 - Collects network information and system state from two Kali VMs via SSH.
 - Saves outputs (ip addresses, routes, socket lists, config files) as timestamped files in `backups/`.
 - Demonstrates VM networking, SSH setup, and automation using Python + Paramiko.
 
-## Lab architecture
+### Lab architecture
 - Kali-server (VM) — host: e.g., `192.168.56.102`
 - Kali-client (VM) — host: e.g., `192.168.56.103`
 - Both VMs attached to the same VirtualBox **Host-Only** network (or Internal network) so they share an L2/L3 segment.
 
-## Prerequisites
+### Prerequisites
 - VirtualBox (or another hypervisor)
 - Two Kali Linux VMs (Kali-server, Kali-client)
 - Python 3.8+ on the host machine (or the VM chosen as controller)
 
-## Steps to recreate the lab (concise)
+### Steps to recreate the lab (concise)
 1. Create two Kali VMs in VirtualBox.
 2. Set network adapters:
    - Adapter 1: Host-only adapter (`vboxnet0`) for both VMs.
@@ -42,7 +46,7 @@ This project demonstrates how to build a small virtual lab (two Kali VMs) and au
     ping -c3 192.168.56.103
     ssh user@192.168.56.102
 
-### Using the automation script
+#### Using the automation script
 
 1. Create and activate a Python virtualenv:
     ```bash
@@ -73,7 +77,7 @@ inventory.json is a JSON array. Example:
     }
     ]
 
-## What the script collects (default)
+### What the script collects (default)
 
     hostname
     uname -a
@@ -85,7 +89,7 @@ inventory.json is a JSON array. Example:
     /etc/network/interfaces
     iptables-save (if available; may require sudo)
 
-## Security notes
+### Security notes
 
     The script uses paramiko.AutoAddPolicy() to automatically accept SSH host keys — fine in a private lab but not secure for production.
 
@@ -93,7 +97,7 @@ inventory.json is a JSON array. Example:
 
     Never commit inventory.json with plaintext credentials.
 
-## Possible improvements / next steps
+### Possible improvements / next steps
 
     Switch to SSH key authentication and remove passwords from inventory.
 
@@ -102,3 +106,8 @@ inventory.json is a JSON array. Example:
     Automate lab provisioning with Vagrant or Ansible.
 
     Show diffs between backups (e.g., nightly job) and commit diffs to a private Git or dashboard.
+
+
+
+## Version 2 (Automated Setup with Vagrant)
+Steps for using Vagrant to spin up the lab automatically, then running the script
