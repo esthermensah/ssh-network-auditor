@@ -4,7 +4,6 @@ Automates SSH collection of network state (IP config, routes, sockets, system in
 This is a Kali VM Network Backups (Lab)
 This project demonstrates how to build a small virtual lab (two Kali VMs) and automate the collection of networking state from the lab using SSH. The goal is to show practical networking and automation skills in a reproducible way.
 
-> **Important:** do **not** commit `inventory.json` with real credentials. Keep `inventory.example.json` in the repo and create a local `inventory.json` for testing.
 
 ## What this project does
 - Collects network information and system state from two Kali VMs via SSH.
