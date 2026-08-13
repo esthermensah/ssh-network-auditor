@@ -20,7 +20,7 @@ This project demonstrates how to build a small virtual lab (two Kali VMs) and au
 - Two Kali Linux VMs (Kali-server, Kali-client)
 - Python 3.8+ on the host machine (or the VM chosen as controller)
 
-## Steps to recreate the lab (concise)
+## Steps to recreate the lab 
 1. Create two Kali VMs in VirtualBox.
 2. Set network adapters:
    - Adapter 1: Host-only adapter (`vboxnet0`) for both VMs.
